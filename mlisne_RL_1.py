@@ -125,7 +125,7 @@ def ML_test_2(*args):
     return(0)
 
 if __name__ == "__main__":
-    # ========= TESTING ===========
+    # ========= TESTING ==========
     # Simulate estimation with 100 observations, 10 discrete vars, 10 continuous vars, and 20 draws
     N = 100
     b0 = 1
