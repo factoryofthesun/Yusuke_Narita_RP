@@ -1,6 +1,6 @@
 #====================
 # Author: Richard Liu
-# Last Updated: 7/6/20
+# Last Updated: 7/7/20
 # Description: Implementation of Machine Learning as Natural Experiment 2SLS Estimator
 # ===================
 import pandas as pd
@@ -107,9 +107,9 @@ def estimate_2sls(Y, D, Z, ML, delta, S, **covariates):
     var_cov = multi_dot([inv(np.dot(W, V.T)), W, e_hat, W.T, inv(np.dot(V, W.T))])
 
     # === Validation: Compare against results from IV2SLS function in linearmodels package ===
-    exog = sm.add_constant(QPS_adj)
-    validation_2sls = IV2SLS(Y_adj, exog, D_adj, Z_adj).fit(cov_type='robust')
-    print(validation_2sls)
+    # exog = sm.add_constant(QPS_adj)
+    # validation_2sls = IV2SLS(Y_adj, exog, D_adj, Z_adj).fit(cov_type='robust')
+    # print(validation_2sls)
 
     ret_dict = {"beta_hat":beta_hat, "var_cov":var_cov, "N":N_adj}
     return(ret_dict)
@@ -119,10 +119,6 @@ def estimate_2sls(Y, D, Z, ML, delta, S, **covariates):
 def ML_test_1(*args):
     ret = np.random.uniform()
     return(ret)
-
-# ML function to test error handling
-def ML_test_2(*args):
-    return(0)
 
 if __name__ == "__main__":
     # ========= TESTING ==========
