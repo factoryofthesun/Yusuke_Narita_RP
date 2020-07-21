@@ -24,10 +24,11 @@ import statsmodels.api as sm
 def computeQPS(X_ci, X_di, S, delta, mu, sigma, ML):
     p_c = len(X_ci) # Number of continuous variables
     delta_vec = np.array([delta] * p_c)
-    standard_draws = np.random.normal(loc=X_ci, scale=delta_vec, size=(S,p_c)) # S draws of X_c ~ N(X_ci, delta)
-    scaled_draws = np.apply_along_axis(lambda row: np.divide(row, np.sqrt(np.sum(row**2))), axis=1, arr=standard_draws) # Scale each draw by its radius
+    standard_draws = np.random.normal(size=(S,p_c)) # S draws from standard normal
+    scaled_draws = np.apply_along_axis(lambda row: np.divide(row, np.sqrt(np.sum(row**2))), axis=1, arr=standard_draws) # Scale each draw by its distance from center
     u = np.random.uniform(low=[0] * S, high = [1] * S)**(1/p_c) # S draws from Unif(0,1), then sent to 1/p_c power
-    uniform_draws = scaled_draws * u[:, None] # Scale by sampled u to get the final uniform draws (S x p_c)
+    uniform_draws = scaled_draws * u[:, None] * delta_vec + X_ci # Scale by sampled u and ball mean/radius to get the final uniform draws (S x p_c)
+
     # De-standardize each of the variables
     destandard_draws = np.add(np.multiply(uniform_draws, sigma), mu) # This applies the transformations element-wise to each row of uniform_draws
 

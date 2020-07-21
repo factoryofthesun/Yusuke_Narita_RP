@@ -1,0 +1,47 @@
+#### Hearing the Voice of the Future: Comments and Suggestions ####
+
+## Presentation Comments ## 
+
+Motivations
+- Though the improved outcome of weighting the youth vote higher is assumed (bye Trump!),
+it would be nice to see some discussion arguing for the normative value of this idea 
+(e.g. younger people have to live with the consequences of political outcomes for longer)
+- I know there has also been some work done on the representativeness of voter turnout vs 
+  national demographics, so you could reference that work in this section as well.
+
+Data Validation
+- How accurately do the datasets match known public data on party representation in
+  each state? 
+- Does the demographic breakdown of your data match Voter turnout statistics? 
+
+Standard Error Calculations
+- I assume this is in the works, but just in case it doesn't seem like there's anything
+that prevents you from doing the same SE work on the L2 data as you did with the ANES data. 
+
+Section A.2 
+ - In the section "Testing Significant Differences between Party Vote Shares", it says the 
+   p-value results reported in table 6 are from the counterfactual Dem/Rep t-test, but in the
+   table caption the p-values are ascribed to the winning party/runner-up t-test. Probably should
+   iron out this discrepancy. 
+ - There is no mention of the p-value results from table 5. 
+
+## Ideas for Extended Analysis/Discussion ## 
+
+Future Weight Trends Based on Life Expectancy Outlook 
+- Given predictions of future demographic shifts and life expectancies, how would the 
+weighted vs non-weighted vote share of each age group change? 
+- How would the addition of weighted votes influence the projected outcomes of future elections?
+
+Different functional forms for weights
+- Seeing how the counterfactual changes with different transformations applied to the life
+  expectancy weights (log, squared, etc)
+- Related: what is the minimum amount of reweighting that would have achieved the Clinton
+  counterfactual victory in 2016? 
+
+Augmenting vote share estimation using voter turnout data
+- It was unclear whether turnout information was available in the L2 data for 2016, but if it wasn't
+  then maybe you could use turnout statistics to try to produce better estimates of 2016 vote share.
+
+Simulating Changes to the Electoral College
+- How would the results change if instead of winner-takes-all states adopted the Maine/Nebraska model? 
+- How accurate are the party vote share estimations on a district level? 
